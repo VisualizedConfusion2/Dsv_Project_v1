@@ -1,7 +1,7 @@
 ﻿@page
 @model PrivacyModel
 @{
-    ViewData["Title"] = "Book Moedelokale";
+    ViewData["Title"] = "Book Mødelokale";
 }
 
 <div class="container mt-5">
@@ -13,8 +13,12 @@
         </div>
 
         <div class="form-group">
-            <label for="meetingTime">Vælg tidspunkt:</label>
-            <input type="time" id="meetingTime" name="MeetingTime" class="form-control" required>
+            <label for="startMeetingTime">Vælg start tidspunkt:</label>
+            <input type="time" id="startMeetingTime" name="MeetingTime" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="slutMeetingTime">Vælg slut tidspunkt:</label>
+            <input type="time" id="slutMeetingTime" name="SlutMeetingTime" class="form-control" required>
         </div>
 
         <div class="form-group">
