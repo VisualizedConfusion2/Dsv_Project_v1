@@ -18,11 +18,11 @@ namespace Dsv_Project_v1.Pages
         {
             // Simulated meeting room data
             MeetingRooms = new List<MeetingRoom>
-        {
+            {
             new MeetingRoom { Name = "Mødelokale A", Capacity = 10, Equipment = "Projektor, Whiteboard", IsAvailable = true },
             new MeetingRoom { Name = "Mødelokale B", Capacity = 8, Equipment = "TV, Konferenceudstyr", IsAvailable = true },
             new MeetingRoom { Name = "Mødelokale C", Capacity = 12, Equipment = "Whiteboard", IsAvailable = true }
-        };
+            };
         }
     }
 

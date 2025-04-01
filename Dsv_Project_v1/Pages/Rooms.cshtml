@@ -1,0 +1,42 @@
+﻿@page
+@model Dsv_Project_v1.Pages.RoomsModel
+@{
+}
+
+<div class="container mt-5">
+    <h2 class="mt-5">Tilgængelige Mødelokaler</h2>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Kapacitet</th>
+                <th>Udstyr</th>
+                <th>Status</th>
+                <th>Handling</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var room in Model.MeetingRooms)
+            {
+                <tr>
+                    <td>@room.Name</td>
+                    <td>@room.Capacity personer</td>
+                    <td>@room.Equipment</td>
+                    <td class="@(room.IsAvailable ? "text-success" : "text-danger")">
+                        @(room.IsAvailable ? "Ledig" : "Optaget")
+                    </td>
+                    <td>
+                        @if (room.IsAvailable)
+                        {
+                            <a class="btn btn-primary" asp-page="/Book" asp-route-roomName="@room.Name">Book</a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-secondary" disabled>Optaget</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
