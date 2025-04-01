@@ -1,4 +1,4 @@
-﻿@page
+﻿@* @page
 @model Dsv_Project_v1.Pages.RoomsModel
 @{
 }
@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var room in Model.MeetingRooms)
+            @foreach (var room in Model.MeetingRoom)
             {
                 <tr>
                     <td>@room.Name</td>
@@ -39,4 +39,4 @@
             }
         </tbody>
     </table>
-</div>
+</div> *@
