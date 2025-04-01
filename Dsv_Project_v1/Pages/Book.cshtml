@@ -1,0 +1,27 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Book Mødelokale";
+}
+
+<div class="container mt-5">
+    <h2>Book @Model.SelectedRoom.Name</h2>
+    <form method="post">
+        <div class="form-group">
+            <label for="meetingDate">Vælg dato:</label>
+            <input type="date" id="meetingDate" name="MeetingDate" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="meetingTime">Vælg tidspunkt:</label>
+            <input type="time" id="meetingTime" name="MeetingTime" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="comment">Kommentar:</label>
+            <textarea id="comment" name="Comment" class="form-control"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success mt-3">Bekræft Booking</button>
+    </form>
+</div>
