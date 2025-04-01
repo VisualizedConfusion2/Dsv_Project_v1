@@ -41,19 +41,19 @@ namespace Dsv_Project_v1.Pages
 
         public void OnGet()
         {
-            SelectedRoom = MeetingRoom.Find(r => r.Name == RoomName);
+            //SelectedRoom = MeetingRoom.Find(r => r.Name == RoomName);
         }
 
-        public IActionResult OnPost()
-        {
-            var room = MeetingRoom.Find(r => r.Name == RoomName);
-            if (room != null)
-            {
-                room.IsAvailable = false; // Markér lokalet som optaget
-            }
+        //public IActionResult OnPost()
+        //{
+        //    //var room = MeetingRoom.Find(r => r.Name == RoomName);
+        //    //if (room != null)
+        //    //{
+        //    //    room.IsAvailable = false; // Markér lokalet som optaget
+        //    //}
 
-            return RedirectToPage("/Index"); // Gå tilbage til forsiden
-        }
+        //    //return RedirectToPage("/Index"); // Gå tilbage til forsiden
+        //}
     }
 }
 
