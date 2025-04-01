@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Dsv_Project_v1.Repo;
+using Dsv_Project_v1.Models;
 
 namespace Dsv_Project_v1.Pages
 {
@@ -12,27 +14,18 @@ namespace Dsv_Project_v1.Pages
             _logger = logger;
         }
 
-        public List<MeetingRoom> MeetingRooms { get; set; } = new();
+        public List<MeetingRoom> MeetingRoom { get; set; } = new();
 
         public void OnGet()
         {
             // Simulated meeting room data
-            MeetingRooms = new List<MeetingRoom>
+            MeetingRoom = new List<MeetingRoom>
             {
-            new MeetingRoom { Name = "Mødelokale A", Capacity = 10, Equipment = "Projektor, Whiteboard", IsAvailable = true },
-            new MeetingRoom { Name = "Mødelokale B", Capacity = 8, Equipment = "TV, Konferenceudstyr", IsAvailable = true },
-            new MeetingRoom { Name = "Mødelokale C", Capacity = 12, Equipment = "Whiteboard", IsAvailable = true }
+            new MeetingRoom { Name = "Mødelokale A", Capacity = 10, Equipment = "Projektor, Whiteboard", IsAvailable = true, Id=1},
+            new MeetingRoom { Name = "Mødelokale B", Capacity = 8, Equipment = "TV, Konferenceudstyr", IsAvailable = true, Id=2},
+            new MeetingRoom { Name = "Mødelokale C", Capacity = 12, Equipment = "Whiteboard", IsAvailable = true, Id=3 }
             };
         }
-    }
-
-    // MeetingRoom Model
-    public class MeetingRoom
-    {
-        public string Name { get; set; }
-        public int Capacity { get; set; }
-        public string Equipment { get; set; }
-        public bool IsAvailable { get; set; }
     }
 }
 
