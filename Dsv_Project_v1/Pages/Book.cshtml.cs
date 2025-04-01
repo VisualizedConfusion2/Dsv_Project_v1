@@ -22,6 +22,9 @@ namespace Dsv_Project_v1.Pages
         public string MeetingTime { get; set; }
 
         [BindProperty]
+        public string EndMeetingTime { get; set; }
+
+        [BindProperty]
         public string Comment { get; set; }
 
         public MeetingRoom SelectedRoom { get; set; }
