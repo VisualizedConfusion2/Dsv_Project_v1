@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Dsv_Project_v1.Repo;
-using Dsv_Project_v1.RoomService;
 using Dsv_Project_v1.Models;
 using System.Diagnostics;
 
@@ -10,10 +9,12 @@ namespace Dsv_Project_v1.Pages
     public class PrivacyModel : PageModel
     {
         private readonly ILogger<PrivacyModel> _logger;
+        private readonly IRoomRepo _roomRepo;
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        public PrivacyModel(ILogger<PrivacyModel> logger, IRoomRepo roomRepo)
         {
             _logger = logger;
+            _roomRepo = roomRepo;
         }
 
         [BindProperty(SupportsGet = true)]
@@ -33,21 +34,19 @@ namespace Dsv_Project_v1.Pages
 
         public MeetingRoom SelectedRoom { get; set; }
 
+        [BindProperty]
+        public MeetingRoom meetingRoom { get; set; } = new();
 
-        public MeetingRoom meetingRoom { get; set; }
-        
         public void OnGet()
         {
-            //SelectedRoom = MeetingRoom.Find(r => r.Name == RoomName);
+            SelectedRoom = _roomRepo.GetAll().FirstOrDefault(r => r.Name == RoomName);
         }
 
         public IActionResult OnPost()
         {
-            Debug.WriteLine("efwef" + meetingRoom.Name);
+            Debug.WriteLine("Booking Room: " + meetingRoom.Name);
             _roomRepo.Add(meetingRoom);
-
-            return RedirectToPage("/index");
+            return RedirectToPage("/Index");
         }
     }
 }
-

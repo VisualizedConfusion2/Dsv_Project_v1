@@ -1,38 +1,31 @@
-﻿using Dsv_Project_v1.Repo;
-using Dsv_Project_v1.Models;
-using System.Xml.Linq;
+﻿using Dsv_Project_v1.Models;
+
 namespace Dsv_Project_v1.Repo
 {
     public class RoomCollectionRepo : IRoomRepo
     {
-        List<MeetingRoom> _meetingRoom = new List<MeetingRoom>();
+        private readonly List<MeetingRoom> _meetingRooms = new();
+
+        public RoomCollectionRepo()
+        {
+            _meetingRooms.Add(new MeetingRoom(1, "Mødelokale A", 12, "Whiteboard", true));
+            _meetingRooms.Add(new MeetingRoom(2, "Mødelokale B", 12, "Whiteboard", true));
+            _meetingRooms.Add(new MeetingRoom(3, "Mødelokale C", 12, "Whiteboard", true));
+        }
 
         public void Add(MeetingRoom meetingRoom)
         {
-            _meetingRoom.Add(meetingRoom);
+            _meetingRooms.Add(meetingRoom);
         }
+
         public List<MeetingRoom> GetAll()
         {
-            return _meetingRoom;
+            return _meetingRooms;
         }
+
         public MeetingRoom Get(int id)
         {
-            foreach (MeetingRoom meetingRoom in _meetingRoom)
-            {
-                if (meetingRoom.Id == id)
-                {
-                    return meetingRoom;
-                }
-            }
-            return null;
+            return _meetingRooms.FirstOrDefault(m => m.Id == id);
         }
-        public RoomCollectionRepo()
-        {
-            _meetingRoom.Add(new MeetingRoom(1, "Mødelokale A", 12, "Whiteboard", true ));
-            _meetingRoom.Add(new MeetingRoom(2, "Mødelokale B", 12, "Whiteboard", true ));
-            _meetingRoom.Add(new MeetingRoom(3, "Mødelokale C", 12, "Whiteboard", true ));
-        }
-
     }
 }
-

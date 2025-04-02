@@ -1,18 +1,15 @@
-﻿using Dsv_Project_v1.Repo;
-using Dsv_Project_v1.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Dsv_Project_v1.Models;
+using Dsv_Project_v1.Repo;
+
 namespace Dsv_Project_v1.RoomService
 {
     public class RoomService
     {
-        private IRoomRepo _roomRepo; // Creates a new instance for room repository
-
+        private readonly IRoomRepo _roomRepo;
 
         public RoomService(IRoomRepo roomRepo)
         {
             _roomRepo = roomRepo;
-
         }
 
         public List<MeetingRoom> GetAll()
@@ -24,9 +21,11 @@ namespace Dsv_Project_v1.RoomService
         {
             _roomRepo.Add(meetingRoom);
         }
+
         public MeetingRoom Get(int id)
         {
             return _roomRepo.Get(id);
         }
     }
 }
+
