@@ -39,7 +39,16 @@ namespace Dsv_Project_v1.Pages
 
         public void OnGet()
         {
-            SelectedRoom = _roomRepo.GetAll().FirstOrDefault(r => r.Name == RoomName);
+            //SelectedRoom = _roomRepo.GetAll().FirstOrDefault(r => r.Name == RoomName);
+            SelectedRoom = null;
+            foreach (var room in _roomRepo.GetAll())
+            {
+                if (room.Name == RoomName)
+                {
+                    SelectedRoom = room;
+                    break;
+                }
+            }
         }
 
         public IActionResult OnPost()
