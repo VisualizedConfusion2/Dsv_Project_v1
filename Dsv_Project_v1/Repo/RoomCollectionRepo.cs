@@ -26,14 +26,14 @@ namespace Dsv_Project_v1.Repo
         public MeetingRoom Get(int id)
         {
             //return _meetingRooms.FirstOrDefault(m => m.Id == id);
-            foreach (var meetingRoom in _meetingRooms)
+            foreach (MeetingRoom meetingRoom in _meetingRooms)
             {
                 if (meetingRoom.Id == id)
                 {
                     return meetingRoom; 
                 }
             }
-            return null;
+            return null; 
         }
     }
 }
